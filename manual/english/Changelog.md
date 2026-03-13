@@ -1,3 +1,12 @@
+---
+# Copyright (c) 2017-2026 Manticore Software Ltd. All rights reserved.
+
+# Documentation licensed under the GNU General Public License Version 3 or
+# later.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/manticoresoftware/manticoresearch/blob/-/LICENSE
+---
+
 # Changelog
 
 ## Version 17.5.1
@@ -128,7 +137,7 @@ If you follow the [official installation guide](https://manticoresearch.com/inst
 
 **Released**: November 7th 2025
 
-❤️ We’d like to extend our heartfelt thanks to [@ricardopintottrdata](https://github.com/ricardopintottrdata) for their work on [PR #3792](https://github.com/manticoresoftware/manticoresearch/pull/3792) and [PR #3828](https://github.com/manticoresoftware/manticoresearch/pull/3828) — addressing issues around `HAVING` total counts and the `filter with empty name` error — and to [@jdelStrother](https://github.com/jdelStrother) for their contribution with [PR #3819](https://github.com/manticoresoftware/manticoresearch/pull/3819), which improves handling of `ParseCJKSegmentation` when Jieba support isn’t available. 
+❤️ We’d like to extend our heartfelt thanks to [@ricardopintottrdata](https://github.com/ricardopintottrdata) for their work on [PR #3792](https://github.com/manticoresoftware/manticoresearch/pull/3792) and [PR #3828](https://github.com/manticoresoftware/manticoresearch/pull/3828) — addressing issues around `HAVING` total counts and the `filter with empty name` error — and to [@jdelStrother](https://github.com/jdelStrother) for their contribution with [PR #3819](https://github.com/manticoresoftware/manticoresearch/pull/3819), which improves handling of `ParseCJKSegmentation` when Jieba support isn’t available.
 
 Your efforts help make the project stronger — many thanks!
 

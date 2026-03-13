@@ -1,3 +1,12 @@
+---
+# Copyright (c) 2017-2026 Manticore Software Ltd. All rights reserved.
+
+# Documentation licensed under the GNU General Public License Version 3 or
+# later.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/manticoresoftware/manticoresearch/blob/-/LICENSE
+---
+
 # Reporting bugs
 
 Unfortunately, Manticore is not yet 100% bug-free, although the development team is working hard towards that goal. You may encounter some issues from time to time.

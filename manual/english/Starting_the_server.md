@@ -1,3 +1,12 @@
+---
+# Copyright (c) 2017-2026 Manticore Software Ltd. All rights reserved.
+
+# Documentation licensed under the GNU General Public License Version 3 or
+# later.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/manticoresoftware/manticoresearch/blob/-/LICENSE
+---
+
 # Starting the server
 
 Manticore Search server can be started using different methods, depending on the installation type.

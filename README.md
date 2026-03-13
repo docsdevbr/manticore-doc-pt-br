@@ -27,7 +27,7 @@ apoiar o projeto.
 
 ## Licença
 
-Copyright (c) 2017-2026 Manticore Software LTD. All rights reserved.
+Copyright (c) 2017-2026 Manticore Software Ltd. All rights reserved.
 
 Documentação licenciada sob a
 [Licença Pública Geral GNU Versão 3 ou posterior][license].<br/>

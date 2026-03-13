@@ -1,5 +1,5 @@
 ---
-# Copyright (c) 2017-2026 Manticore Software LTD. All rights reserved.
+# Copyright (c) 2017-2026 Manticore Software Ltd. All rights reserved.
 
 # Documentation licensed under the GNU General Public License Version 3 or
 # later.
@@ -87,7 +87,7 @@ Read more about production use [in the documentation](https://github.com/mantico
 ``` bash
 helm repo add manticoresearch https://helm.manticoresearch.com
 ---
-# Copyright (c) 2017-2026 Manticore Software LTD. All rights reserved.
+# Copyright (c) 2017-2026 Manticore Software Ltd. All rights reserved.
 
 # Documentation licensed under the GNU General Public License Version 3 or
 # later.
