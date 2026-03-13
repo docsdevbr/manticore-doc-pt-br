@@ -5,64 +5,144 @@
 # later.
 # The original work was translated from English into Brazilian Portuguese.
 # https://github.com/manticoresoftware/manticoresearch/blob/-/LICENSE
+
+source_url: https://github.com/manticoresoftware/manticoresearch/blob/master/manual/english/Read_this_first.md
+revision: adbbf4d8ab8beda20c125200bd2c6450729e6ec3
+status: ready
 ---
 
-# Read this first
+# Leia isto primeiro
 
-## About this manual
+## Sobre este manual
 
-The manual is arranged to reflect the most likely way you would use Manticore:
+Este manual foi organizado para refletir a maneira provável de usar o Manticore:
 
-* starting with basic information about it and how to install and connect
-* essential things like adding documents and running searches
-* performance optimization tips, tricks and extending Manticore with the help of plugins and custom functions
+- Começando com informações básicas sobre o programa e como instalá-lo e
+  conectá-lo.
+- Recursos essenciais, como adicionar documentos e executar pesquisas.
+- Dicas de otimização de desempenho, truques e extensão do Manticore com a ajuda
+  de plugins e funções personalizadas.
 
-##### Do not skip 1️⃣ 2️⃣ 3️⃣
-Key sections of the manual are marked with 1️⃣, 2️⃣, 3️⃣ etc. in the menu for your convenience since their corresponding functionality is most used. If you are new to Manticore **we highly recommend not skipping them**.
+##### Não pule1️⃣ 2️⃣ 3️⃣
 
-##### Quick start guide
-If you are looking for a quick understanding of how Manticore works in general [⚡ Quick start guide](Quick_start_guide.md) is a good place to start.
+As seções principais do manual estão marcadas com 1️⃣, 2️⃣, 3️⃣ etc. no menu para
+sua conveniência, já que suas respectivas funcionalidades são as mais
+utilizadas.
+Se você é iniciante no Manticore, **recomendamos fortemente que não pule essas
+seções**.
 
-##### Using examples
-Each query example has a little icon 📋 in the top-right corner:
+##### Guia de início rápido
+
+Se você está procurando uma compreensão rápida de como o Manticore funciona em
+geral, o [Guia de início rápido](Quick_start_guide.md) é um bom lugar para
+começar.
+
+##### Usando exemplos
+
+Cada exemplo de consulta tem um pequeno ícone 📋 no canto superior direito:
 
 ![Copy example](copy_example.png)
 
-You can use it to copy examples to the clipboard. **If the query is an HTTP request it will be copied as a CURL command**. You can configure the host/port if you press ⚙️.
+Você pode usá-lo para copiar exemplos para a área de transferência.
+**Se a consulta for uma requisição HTTP, ela será copiada como um comando
+CURL**.
+Você pode configurar o host/porta pressionando ⚙️.
 
-##### Search in this manual
+##### Pesquisa neste manual
 
-We love search and we've made our best to make searching in this manual as convenient as possible. Of course it's backed by Manticore Search. Besides using the search bar which requires opening the manual first there is a very easy way to find something by just opening **mnt.cr/your-search-keyword** :
+Amamos a pesquisa e nos esforçamos ao máximo para torná-la o mais prática
+possível neste manual.
+Claro que ela é suportada pelo Manticore Search.
+Além de usar a barra de pesquisa, que exige que o manual seja aberto primeiro,
+existe uma maneira muito fácil de encontrar algo, basta abrir
+**mnt.cr/sua-palavra-chave-de-pesquisa**:
 
 ![mnt.cr quick manual search](mnt.cr.gif)
 
-## Best practices
-There are few things you need to understand about Manticore Search that can help you follow the best practices of using it.
+## Boas práticas
 
-#### Real-time table vs plain table
-* **[Real-time table](Creating_a_table/Local_tables/Real-time_table.md)** allows adding, updating and deleting documents with immediate availability of the changes.
-* **[Plain table](Creating_a_table/Local_tables/Plain_table.md)** is a mostly immutable data structure and a basic element used by real-time tables. Plain table stores a set of documents, their common dictionary and indexation settings. One real-time table can consist of multiple plain tables (chunks), but **besides that Manticore provides direct access to building plain tables** using tool [indexer](Data_creation_and_modification/Adding_data_from_external_storages/Plain_tables_creation.md#Indexer-tool). It makes sense when your data is mostly immutable, therefore you don't need a real-time table for that.
+Há alguns aspectos importantes que você precisa entender sobre o Manticore
+Search para seguir as melhores práticas de uso.
 
-#### Real-time mode vs plain mode
-Manticore Search works in two modes:
-* **Real-time mode** (RT mode). This is a default one and allows to manage your data schema **imperatively**:
-  * allows managing your data schema online using SQL commands `CREATE`/`ALTER`/`DROP TABLE` and their equivalents in non-SQL clients
-  * in the configuration file you need to define only server-related settings including [data_dir](Server_settings/Searchd.md#data_dir)
-* **Plain mode** allows to define your data schemas in a configuration file, i.e. provides **declarative** kind of schema management. It makes sense in three cases:
-  * when you only deal with plain tables
-  * or when your data schema is very stable and you don't need replication (as it's available only in the RT mode)
-  * when you have to make your data schema portable (e.g. for easier deployment of it on a new server)
+#### Tabela em tempo real vs. tabela simples
 
-You cannot combine the 2 modes and need to decide which one you want to follow by specifying [data_dir](Server_settings/Searchd.md#data_dir) in your configuration file (which is the default behaviour). If you are unsure **our recommendation is to follow the RT mode** as if even you need a plain table you can [build](Data_creation_and_modification/Adding_data_from_external_storages/Plain_tables_creation.md) it with a separate plain table config and [import](Data_creation_and_modification/Adding_data_from_external_storages/Adding_data_to_tables/Importing_table.md) to your main Manticore instance.
+- **[Tabela em tempo real](Creating_a_table/Local_tables/Real-time_table.md)**
+  permite adicionar, atualizar e excluir documentos com disponibilidade imediata
+  das alterações.
+- **[Tabela simples](Creating_a_table/Local_tables/Plain_table.md)** é uma
+  estrutura de dados praticamente imutável e um elemento básico usado por
+  tabelas em tempo real.
+  Uma tabela simples armazena um conjunto de documentos, seu dicionário comum e
+  configurações de indexação.
+  Uma tabela em tempo real pode consistir em várias tabelas simples (pedaços),
+  mas **além disso, o Manticore fornece acesso direto à criação de tabelas
+  simples** usando a ferramenta
+  [indexer](Data_creation_and_modification/Adding_data_from_external_storages/Plain_tables_creation.md#Indexer-tool).
+  Isso faz sentido quando seus dados são praticamente imutáveis, portanto, você
+  não precisa de uma tabela em tempo real.
 
-Real-time tables can be used in both RT and plain modes. In the RT mode a real-time table is defined with a `CREATE TABLE` command, while in the plain mode it is defined in the configuration file. Plain (offline) tables are supported only in the plain mode. Plain tables cannot be created in the RT mode, but existing plain tables made in the plain mode can be [converted](Data_creation_and_modification/Adding_data_from_external_storages/Adding_data_to_tables/Attaching_one_table_to_another.md) to real-time tables and [imported](Data_creation_and_modification/Adding_data_from_external_storages/Adding_data_to_tables/Importing_table.md) in the RT mode.
+#### Modo em tempo real vs. modo simples
+
+O Manticore Search funciona em dois modos:
+
+- **Modo em tempo real** (modo RT).
+  Este é o modo padrão e permite gerenciar seu esquema de dados
+  **imperativamente**:
+  - Permite gerenciar seu esquema de dados online usando os comandos SQL
+    `CREATE`/`ALTER`/`DROP TABLE` e seus equivalentes em clientes não-SQL.
+  - No arquivo de configuração, você precisa definir apenas as configurações
+    relacionadas ao servidor, incluindo
+    [data_dir](Server_settings/Searchd.md#data_dir).
+- O **modo simples** permite definir seus esquemas de dados em um arquivo de
+  configuração, ou seja, fornece um gerenciamento de esquema **declarativo**.
+  Faz sentido em três casos:
+  - Quando você lida apenas com tabelas simples.
+  - Ou quando seu esquema de dados é muito estável e você não precisa de
+    replicação (já que ela está disponível apenas no modo RT).
+  - Quando você precisa tornar seu esquema de dados portátil (por exemplo, para
+    facilitar a implantação em um novo servidor).
+
+Não é possível combinar os dois modos e é necessário decidir qual deles seguir,
+especificando o [data_dir](Server_settings/Searchd.md#data_dir) no seu arquivo
+de configuração (que é o comportamento padrão).
+Se você não tiver certeza, **nossa recomendação é seguir o modo RT**, pois,
+mesmo que precise de uma tabela simples, você pode
+[criá-la](Data_creation_and_modification/Adding_data_from_external_storages/Plain_tables_creation.md)
+com uma configuração de tabela simples separada e
+[importá-la](Data_creation_and_modification/Adding_data_from_external_storages/Adding_data_to_tables/Importing_table.md)
+para a sua instância principal do Manticore.
+
+Tabelas em tempo real podem ser usadas tanto no modo RT quanto no modo simples.
+No modo RT, uma tabela em tempo real é definida com um comando `CREATE TABLE`,
+enquanto no modo simples ela é definida no arquivo de configuração.
+Tabelas simples (offline) são suportadas apenas no modo simples.
+Tabelas simples não podem ser criadas no modo RT, mas tabelas simples existentes
+criadas no modo simples podem ser
+[convertidas](Data_creation_and_modification/Adding_data_from_external_storages/Adding_data_to_tables/Attaching_one_table_to_another.md)
+para tabelas em tempo real e
+[importadas](Data_creation_and_modification/Adding_data_from_external_storages/Adding_data_to_tables/Importing_table.md)
+no modo RT.
 
 #### SQL vs JSON
-Manticore provides multiple ways and interfaces to manage your schemas and data, but the two main are:
-* **SQL**. This is a native Manticore's language which enables all Manticore's functionality. **The best practice is to use SQL to**:
-  * manage your schemas and do other DBA routines as it's the easiest way to do that
-  * design your queries as SQL is much closer to natural language than the JSON DSL which is important when you design something new. You can use Manticore SQL via any MySQL client or [/sql](Connecting_to_the_server/MySQL_protocol.md).
-* **JSON**. Most functionality is also available via JSON domain specific language. This is especially useful when you integrate Manticore with your application as with JSON you can do it more programmatically than with SQL. The best practice is to **first explore how to do something via SQL and then use JSON to integrate it into your application.**
+
+O Manticore oferece várias maneiras e interfaces para gerenciar seus esquemas e
+dados, mas as duas principais são:
+
+- **SQL**.
+  Esta é uma linguagem nativa do Manticore que habilita todas as funcionalidades
+  do Manticore.
+  **A melhor prática é usar SQL para:**
+  - Gerenciar seus esquemas e realizar outras rotinas de DBA, pois é a maneira
+    mais fácil de fazer isso.
+  - Projetar suas consultas, pois o SQL é muito mais próximo da linguagem
+    natural do que a DSL JSON, o que é importante ao projetar algo novo.
+    Você pode usar o SQL do Manticore por meio de qualquer cliente MySQL ou
+    [/sql](Connecting_to_the_server/MySQL_protocol.md).
+- **JSON**. A maioria das funcionalidades também está disponível por meio da
+  linguagem específica de domínio JSON.
+  Isso é especialmente útil ao integrar o Manticore à sua aplicação, pois com
+  JSON você pode fazer isso de forma mais programática do que com SQL.
+  A melhor prática é **primeiro explorar como fazer algo via SQL e, em seguida,
+  usar JSON para integrá-lo à sua aplicação.**
 
 <!-- proofread -->
-
